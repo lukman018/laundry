@@ -2,7 +2,10 @@
 @section('content')
 @include('komponen.pesan')
 <div class="p-3"></div>
-<div class="container">
+<div class="container mt-5">
+    <div class="text-center fs-4">
+        <p><strong>Data Pembayaran</strong></p>
+    </div>
     <a href="{{route('admin.pembayaran.create')}}" class="btn btn-primary">Tambah Pembayaran</a>
     <table class="table table-striped mt-3">
         <thead>

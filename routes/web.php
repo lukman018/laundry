@@ -50,6 +50,7 @@ Route::middleware([RoleMiddleware::class . 'Admin'])->group (function () {
     Route::post('/admin/pembayaran',[JenisPembayaranController::class,'store'])->name('admin.pembayaran.store');
     Route::delete('/admin/pembayaran/{id_jenis_pembayaran}',[JenisPembayaranController::class,'destroy'])->name('admin.pembayaran.destroy');
     Route::get('/admin/pembayaran/{id_jenis_pembayaran}/edit',[JenisPembayaranController::class,'edit'])->name('admin.pembayaran.edit');
+    Route::put('/admin/pembayaran/{id_jenis_pembayaran}',[JenisPembayaranController::class,'update'])->name('admin.pembayaran.update');
 
     //data Konsumen
     Route::get('/admin/konsumen/index',[AdminController::class, 'data_konsumen'])->name('admin.konsumen.index');

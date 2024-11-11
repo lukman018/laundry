@@ -2,6 +2,9 @@
 @section('content')
 <div class="container mt-5">
     <div class="p-3 bg-body  shadow-sm">
+        <div class="text-center fs-4">
+            <p><strong>Data Petugas</strong></p>
+        </div>
         <!-- FORM PENCARIAN -->
     <div class="pb-3">
         <form class="d-flex" action="{{ route('admin.petugas.index') }}" method="get">

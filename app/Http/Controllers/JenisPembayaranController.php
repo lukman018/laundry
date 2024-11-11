@@ -37,7 +37,23 @@ class JenisPembayaranController extends Controller
     //edit data pembayaran
     public function edit($id_jenis_pembayaran){
         $jenispembayaran = JenisPembayaran::findOrFail($id_jenis_pembayaran);
-        return view('admin.pembayaran.edit', compact('jenispembyaran'));
+        return view('admin.pembayaran.edit', compact('jenispembayaran'));
+    }
+
+    public function update(Request $request , $id_jenis_pembayaran){
+        $validateData = $request->validate([
+             'nama_pembayaran'=> 'required|string|max:255'.$id_jenis_pembayaran,
+            'deskripsi' => 'nullable|string'
+        ]);
+        $jenispembayaran = JenisPembayaran::findOrFail($id_jenis_pembayaran);
+        if(isset($validateData['nama_pembayaran'])){
+            $jenispembayaran->nama_pembayaran = $validateData['nama_pembayaran'];
+        }if(isset($validateData['deskripsi'])){
+            $jenispembayaran->deskripsi = $validateData['deskripsi'];
+        }
+
+        $jenispembayaran->save();
+        return redirect()->route('admin.pembayaran.index');
     }
 
 
