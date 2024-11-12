@@ -9,14 +9,17 @@ use Illuminate\Http\Request;
 class TransaksiController extends Controller
 {
     public function index(){
-        return view('admin.transaksi.index');
+        $transaksi = Transaksi::paginate(10);
+        return view('admin.transaksi.index', compact('transaksi'));
     }
 
+    //create
     public function create(){
         $jenispembayaran = JenisPembayaran::all();
         return view ('admin.transaksi.create', compact('jenispembayaran'));
     }
 
+    //store
     public function store(Request $request){
         $request->validate([
                 'tanggal' => 'required|date',
@@ -35,5 +38,17 @@ class TransaksiController extends Controller
         ];
         Transaksi::create($transaksi);
         return redirect()->route('admin.pembayaran.index')->with('succes', 'data transaksi berhasil di tambah');
+    }
+
+    //edit
+    public function edit($id_transaksi){
+        return view('admin.transaksi.edit');
+    }
+
+    //destroy
+    public function destroy($id_transaksi){
+        $id_transaksi = Transaksi::findOrFail($id_transaksi);
+        $id_transaksi -> delete();
+        return redirect()->route('admin.transaksi.index')->with('succes', 'data berhasil di hapus');
     }
 }

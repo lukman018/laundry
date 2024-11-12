@@ -10,10 +10,10 @@
     <table class="table table-striped mt-3">
         <thead>
             <tr>
-                <th>No</th>
-                <th>Nama Pembayaran</th>
-                <th>Deskripsi</th>
-                <th>Aksi</th>
+                <th class="col-md-1">No</th>
+                <th class="col-md-2">Nama Pembayaran</th>
+                <th class="col-md-2">Deskripsi</th>
+                <th class="col-md-1">Aksi</th>
             </tr>
             <tbody>
                 <?php $i = $jenispembayaran->firstItem()?>

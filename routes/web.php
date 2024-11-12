@@ -57,6 +57,8 @@ Route::middleware([RoleMiddleware::class . 'Admin'])->group (function () {
     Route::get('admin/transaksi/index',[TransaksiController::class, 'index'])->name('admin.transaksi.index');
     Route::get('admin/transaksi/create',[TransaksiController::class, 'create'])->name('admin.transaksi.create');
     Route::post('admin/transaksi',[TransaksiController::class, 'store'])->name('admin.transaksi.store');
+    Route::get('admin/transaksi/{id_transaksi}/edit',[TransaksiController::class, 'edit'])->name('admin.transaksi.edit');
+    Route::post('admin/transaksi/{id_transaksi}',[TransaksiController::class, 'update'])->name('admin.transaksi.update');
 
     //data Konsumen
     Route::get('/admin/konsumen/index',[AdminController::class, 'data_konsumen'])->name('admin.konsumen.index');
