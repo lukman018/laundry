@@ -7,6 +7,7 @@ use App\Http\Controllers\PetugasController;
 use App\Http\Controllers\PimpinanController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\TransaksiController;
 use App\Http\Middleware\RoleMiddleware;
 use Illuminate\Support\Facades\Route;
 // use PHPUnit\Framework\Attributes\Group;
@@ -51,6 +52,11 @@ Route::middleware([RoleMiddleware::class . 'Admin'])->group (function () {
     Route::delete('/admin/pembayaran/{id_jenis_pembayaran}',[JenisPembayaranController::class,'destroy'])->name('admin.pembayaran.destroy');
     Route::get('/admin/pembayaran/{id_jenis_pembayaran}/edit',[JenisPembayaranController::class,'edit'])->name('admin.pembayaran.edit');
     Route::put('/admin/pembayaran/{id_jenis_pembayaran}',[JenisPembayaranController::class,'update'])->name('admin.pembayaran.update');
+
+    //data Transaksi
+    Route::get('admin/transaksi/index',[TransaksiController::class, 'index'])->name('admin.transaksi.index');
+    Route::get('admin/transaksi/create',[TransaksiController::class, 'create'])->name('admin.transaksi.create');
+    Route::post('admin/transaksi',[TransaksiController::class, 'store'])->name('admin.transaksi.store');
 
     //data Konsumen
     Route::get('/admin/konsumen/index',[AdminController::class, 'data_konsumen'])->name('admin.konsumen.index');

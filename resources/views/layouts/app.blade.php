@@ -24,7 +24,10 @@
                             <a class="nav-link text-white" href="{{route('produk.index')}}">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="{{route('admin.pembayaran.index')}}">Transaksi</a>
+                            <a class="nav-link text-white" href="{{route('admin.pembayaran.index')}}">Data Pembayaran</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="{{route('admin.transaksi.index')}}">Transaksi</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-white" href="{{route('admin.petugas.index')}}">Data Petugas</a>
