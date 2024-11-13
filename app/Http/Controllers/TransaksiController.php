@@ -21,6 +21,7 @@ class TransaksiController extends Controller
 
     //store
     public function store(Request $request){
+        dd($request->all());
         $request->validate([
                 'tanggal' => 'required|date',
                 'jumlah' => 'required|numeric',
@@ -37,7 +38,7 @@ class TransaksiController extends Controller
             'status' => $request->status,
         ];
         Transaksi::create($transaksi);
-        return redirect()->route('admin.pembayaran.index')->with('succes', 'data transaksi berhasil di tambah');
+        return redirect()->route('admin.transaksi.index')->with('succes', 'data transaksi berhasil di tambah');
     }
 
     //edit

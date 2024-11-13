@@ -32,6 +32,11 @@ class ProdukController extends Controller
         return view('produk.about');
     }
 
+
+    public function konsumen(){
+        return view('petugas.konsumen.index');
+    }
+
     //start crud
     // Menampilkan form untuk menambahkan produk baru
     public function create()
@@ -39,9 +44,6 @@ class ProdukController extends Controller
         return view('produk.create'); // Mengembalikan view untuk form pembuatan produk
     }
 
-    public function konsumen(){
-        return view('petugas.konsumen.index');
-    }
 
 
     //validasi data untuk menambahkan crud
